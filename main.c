@@ -20,24 +20,24 @@ void resp(int n, double a, double b){
     double ans = 0;
 
     if(n == 4 && b == 0){
-        printf("Erro: Divisão por zero não é permitida.\n");
+        printf("Error: Division by zero is not allowed.\n");
         return;
     }
     else if(n == 1){
         ans = a + b;
-        printf("Resultado: %.10g + %.10g = %.10g\n", a, b, ans);
+        printf("Result: %.10g + %.10g = %.10g\n", a, b, ans);
     }
     else if(n == 2){
         ans = a - b;
-        printf("Resultado: %.10g - %.10g = %.10g\n", a, b, ans);
+        printf("Result: %.10g - %.10g = %.10g\n", a, b, ans);
     }
     else if(n == 3){
         ans = a * b;
-        printf("Resultado: %.10g * %.10g = %.10g\n", a, b, ans);
+        printf("Result: %.10g * %.10g = %.10g\n", a, b, ans);
     }
     else if(n == 4){
         ans = a / b;
-        printf("Resultado: %.10g / %.10g = %.10g\n", a, b, ans);
+        printf("Result: %.10g / %.10g = %.10g\n", a, b, ans);
     }
 }
 
@@ -53,43 +53,41 @@ int main(){
 
         // valida opção (1 a 5)
         while(scanf("%d", &n) != 1 || n < 1 || n > 5){
-            printf("Opção inválida!\n");
-            printf("Selecione uma operação válida: ");
+            printf("Invalid option!\n");
+            printf("Select a valid option: ");
             while(getchar() != '\n'); // limpa buffer
         }
 
         if(n == 5){
-            printf("Obrigado por usar a calculadora! Até a próxima.\n");
+            printf("Thank you for using the calculator! See you next time.\n");
             return 0;
         }
 
         double a, b;
 
-        printf("Digite o primeiro número: ");
+        printf("Enter the first number: ");
         scanf("%lf", &a);
 
-        printf("Digite o segundo número: ");
+        printf("Enter the second number: ");
         scanf("%lf", &b);
 
         resp(n, a, b);
 
-        // pergunta se quer continuar (aceita y/n ou s)
+        // pergunta se quer continuar
         while(1){
-            printf("Deseja realizar outra operação? (y/n): ");
-            scanf(" %c", &d);   // espaço antes do %c é importante
+            printf("Do you want to perform another operation? (y/n): ");
+            scanf(" %c", &d);
             d = tolower(d);
 
-            if(d == 'y' || d == 'n' || d == 's')
+            if(d == 'y' || d == 'n')
                 break;
 
-            printf("Resposta inválida. Por favor, digite 'y' para sim ou 'n' para não.\n");
+            printf("Invalid response. Please enter 'y' for yes or 'n' for no.\n");
         }
 
         if(d == 'n'){
-            printf("Obrigado por usar a calculadora! Até a próxima.\n");
+            printf("Thank you for using the calculator! See you next time.\n");
             return 0;
         }
-
-        // se for 'y' ou 's', o loop recomeça automaticamente
     }
 }
